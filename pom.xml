@@ -17,8 +17,8 @@
         <platformName>android</platformName>
         <platformVersion>5.1</platformVersion>
         <remote>true</remote>
-        <base.selenoid.url>http://172.30.207.187:80/wd/hub</base.selenoid.url>
-        <base.local.url>http://127.0.0.1:4723/wd/hub</base.local.url>
+        <remote.url>http://172.30.207.187:80/wd/hub</remote.url>
+        <local.url>http://127.0.0.1:4723/wd/hub</local.url>
         <test.project.language>RU</test.project.language>
 
         <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
@@ -86,7 +86,7 @@
         <profile>
             <id>production</id>
             <properties>
-                <webdriver.base.url>${base.selenoid.url}</webdriver.base.url>
+                <webdriver.base.url>${local.url}</webdriver.base.url>
             </properties>
         </profile>
         <profile>
@@ -116,8 +116,8 @@
                         <platformName>${platformName}</platformName>
                         <remote>${remote}</remote>
                         <platformVersion>${platformVersion}</platformVersion>
-                        <base.selenoid.url>${base.selenoid.url}</base.selenoid.url>
-                        <base.local.url>${base.local.url}</base.local.url>
+                        <remote.url>${remote.url}</remote.url>
+                        <local.url>${base.url}</local.url>
                         <test.project.language>${test.project.language}</test.project.language>
                     </systemPropertyVariables>
                 </configuration>

@@ -17,9 +17,9 @@ public class AndroidWebDriverProvider implements WebDriverProvider {
 
   private final String platformName = System.getProperty("platformName");
   private final String platformVersion = System.getProperty("platformVersion");
-  private final String baseSelenoidUrl = System.getProperty("base.selenoid.url");
+  private final String baseSelenoidUrl = System.getProperty("remote.url");
 
-  private final String baseLocalUrl = System.getProperty("base.local.url");
+  private final String baseLocalUrl = System.getProperty("local.url");
   private final boolean remote = "true".equals(System.getProperty("remote"));
 
   @Nonnull
