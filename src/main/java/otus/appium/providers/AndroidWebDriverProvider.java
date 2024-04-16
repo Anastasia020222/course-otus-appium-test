@@ -13,6 +13,8 @@ import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 
+import static otus.appium.common.Constants.SELENIUM_ADDRESS;
+
 public class AndroidWebDriverProvider implements WebDriverProvider {
 
   private final String platformName = System.getProperty("platformName");
@@ -51,7 +53,7 @@ public class AndroidWebDriverProvider implements WebDriverProvider {
     try {
       if (remote) {
         System.out.println("baseSelenoidUrl " + baseSelenoidUrl);
-        return new AndroidDriver(new URL(baseSelenoidUrl), options);
+        return new AndroidDriver(new URL(SELENIUM_ADDRESS), options);
       } else {
         return new AndroidDriver(new URL(baseLocalUrl), options);
       }
