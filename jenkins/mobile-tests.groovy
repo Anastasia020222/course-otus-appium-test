@@ -20,6 +20,7 @@ timeout(60) {
         }
 
         stage("Create configurations") {
+            sh "echo BASE_SELENOID_URL=${env.getProperty('BASE_SELENOID_URL')} > ./.env"
             sh "echo PLATFORM_NAME=${env.getProperty('PLATFORM_NAME')} > ./.env"
             sh "echo PLATFORM_VERSION=${env.getProperty('PLATFORM_VERSION')} >> ./.env"
         }
