@@ -6,6 +6,7 @@ import static com.codeborne.selenide.Selenide.switchTo;
 import static otus.appium.common.Constants.EXPLICIT_WAIT;
 
 import com.google.inject.Inject;
+import io.qameta.allure.Step;
 import org.openqa.selenium.Alert;
 
 public class ChatStep {
@@ -18,6 +19,7 @@ public class ChatStep {
   }
 
   //Проверяем отображение первого слайда
+  @Step("Проверяем отображение первого слайда")
   public ChatStep checkOneSlide() {
     chatPage
         .getTextOneSlide()
@@ -33,6 +35,7 @@ public class ChatStep {
   }
 
   //проверяем отображение второго слайда
+  @Step("Проверяем отображение второго слайда")
   public ChatStep checkTwoSlide() {
     chatPage
         .getNextTextTwoSlide()
@@ -48,6 +51,7 @@ public class ChatStep {
   }
 
   //проверяем отображение третьего слайда
+  @Step("Проверяем отображение третьего слайда")
   public ChatStep checkTreeSlide() {
     chatPage
         .getTextThreeSlide()
@@ -63,6 +67,7 @@ public class ChatStep {
   }
 
   //проверяем отображение функционала открытого экрана с чатом
+  @Step("Проверяем отображение функционала открытого экрана с чатом")
   public ChatStep checkVisibilityChat() {
     chatPage
         .getMessageWelcome()
