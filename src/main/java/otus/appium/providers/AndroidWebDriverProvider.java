@@ -1,5 +1,7 @@
 package otus.appium.providers;
 
+import static otus.appium.common.Constants.SELENIUM_ADDRESS;
+
 import com.codeborne.selenide.WebDriverProvider;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.options.UiAutomator2Options;
@@ -12,8 +14,6 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
-
-import static otus.appium.common.Constants.SELENIUM_ADDRESS;
 
 public class AndroidWebDriverProvider implements WebDriverProvider {
 
