@@ -21,7 +21,7 @@ timeout(60) {
 
         stage("Create configurations") {
             sh "echo REMOTE_URL=${env.getProperty('REMOTE_URL')} > ./.env"
-            sh "echo PLATFORM_NAME=${env.getProperty('PLATFORM_NAME')} > ./.env"
+            sh "echo PLATFORM_NAME=${env.getProperty('PLATFORM_NAME')} >> ./.env"
             sh "echo PLATFORM_VERSION=${env.getProperty('PLATFORM_VERSION')} >> ./.env"
         }
 
