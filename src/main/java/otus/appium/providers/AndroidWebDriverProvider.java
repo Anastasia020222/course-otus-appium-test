@@ -1,7 +1,5 @@
 package otus.appium.providers;
 
-import static otus.appium.common.Constants.SELENIUM_ADDRESS;
-
 import com.codeborne.selenide.WebDriverProvider;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.options.UiAutomator2Options;
@@ -20,7 +18,6 @@ public class AndroidWebDriverProvider implements WebDriverProvider {
   private final String platformName = System.getProperty("platformName");
   private final String platformVersion = System.getProperty("platformVersion");
   private final String baseSelenoidUrl = System.getProperty("remote.url");
-
   private final String baseLocalUrl = System.getProperty("local.url");
   private final boolean remote = "true".equals(System.getProperty("remote"));
 
@@ -52,7 +49,6 @@ public class AndroidWebDriverProvider implements WebDriverProvider {
 
     try {
       if (remote) {
-        System.out.println("baseSelenoidUrl " + baseSelenoidUrl);
         return new AndroidDriver(new URL(baseSelenoidUrl), options);
       } else {
         return new AndroidDriver(new URL(baseLocalUrl), options);
