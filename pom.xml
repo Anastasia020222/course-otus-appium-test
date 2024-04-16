@@ -9,21 +9,25 @@
     <version>1.0-SNAPSHOT</version>
 
     <properties>
-        <maven.compiler.source>20</maven.compiler.source>
-        <maven.compiler.target>20</maven.compiler.target>
-        <maven.compiler.plugin.version>3.9.6</maven.compiler.plugin.version>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <allure.results.directory>${project.basedir}/allure-results</allure.results.directory>
+        <maven.compiler.plugin.version>3.9.0</maven.compiler.plugin.version>
 
         <platformName>android</platformName>
         <platformVersion>5.1</platformVersion>
         <remote>true</remote>
-        <base.url>http://127.0.0.1:80/wd/hub</base.url>
+        <base.selenoid.url>http://172.30.207.187:80/wd/hub</base.selenoid.url>
+        <base.local.url>http://127.0.0.1:4723/wd/hub</base.local.url>
         <test.project.language>RU</test.project.language>
 
         <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
         <junit.version>5.10.0</junit.version>
         <selenide.version>7.0.4</selenide.version>
+        <allure.selenide>2.24.0</allure.selenide>
         <lombok.version>1.18.24</lombok.version>
         <guice.version>5.1.0</guice.version>
+        <allure-maven.version>2.12.0</allure-maven.version>
         <checkstyle.plugin.version>3.1.0</checkstyle.plugin.version>
         <surefire.plugin.version>3.0.0-M5</surefire.plugin.version>
     </properties>
@@ -55,13 +59,34 @@
             <artifactId>guice</artifactId>
             <version>${guice.version}</version>
         </dependency>
+
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-selenide</artifactId>
+            <version>${allure.selenide}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-bom</artifactId>
+            <version>${allure.selenide}</version>
+            <type>pom</type>
+            <scope>import</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-junit5</artifactId>
+            <version>${allure.selenide}</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
     <profiles>
         <profile>
             <id>production</id>
             <properties>
-                <webdriver.base.url>${base.url}</webdriver.base.url>
+                <webdriver.base.url>${base.selenoid.url}</webdriver.base.url>
             </properties>
         </profile>
         <profile>
@@ -79,11 +104,20 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>${surefire.plugin.version}</version>
                 <configuration>
+                    <parallel>methods</parallel>
+                    <threadCount>3</threadCount>
+                    <systemProperties>
+                        <property>
+                            <name>allure.results.directory</name>
+                            <value>${project.basedir}/allure-results</value>
+                        </property>
+                    </systemProperties>
                     <systemPropertyVariables>
                         <platformName>${platformName}</platformName>
                         <remote>${remote}</remote>
                         <platformVersion>${platformVersion}</platformVersion>
-                        <base.url>${base.url}</base.url>
+                        <base.selenoid.url>${base.selenoid.url}</base.selenoid.url>
+                        <base.local.url>${base.local.url}</base.local.url>
                         <test.project.language>${test.project.language}</test.project.language>
                     </systemPropertyVariables>
                 </configuration>
@@ -128,6 +162,11 @@
                         <version>4.8.3</version>
                     </dependency>
                 </dependencies>
+            </plugin>
+            <plugin>
+                <groupId>io.qameta.allure</groupId>
+                <artifactId>allure-maven</artifactId>
+                <version>${allure-maven.version}</version>
             </plugin>
         </plugins>
     </build>

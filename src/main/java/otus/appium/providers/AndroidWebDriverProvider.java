@@ -17,7 +17,9 @@ public class AndroidWebDriverProvider implements WebDriverProvider {
 
   private final String platformName = System.getProperty("platformName");
   private final String platformVersion = System.getProperty("platformVersion");
-  private final String baseUrl = System.getProperty("base.url");
+  private final String baseSelenoidUrl = System.getProperty("base.selenoid.url");
+
+  private final String baseLocalUrl = System.getProperty("base.local.url");
   private final boolean remote = "true".equals(System.getProperty("remote"));
 
   @Nonnull
@@ -47,7 +49,11 @@ public class AndroidWebDriverProvider implements WebDriverProvider {
     }
 
     try {
-      return new AndroidDriver(new URL(baseUrl), options);
+      if (remote) {
+        return new AndroidDriver(new URL(baseSelenoidUrl), options);
+      } else {
+        return new AndroidDriver(new URL(baseLocalUrl), options);
+      }
     } catch (MalformedURLException e) {
       throw new RuntimeException(e);
     }
