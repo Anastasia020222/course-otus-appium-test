@@ -50,6 +50,7 @@ public class AndroidWebDriverProvider implements WebDriverProvider {
 
     try {
       if (remote) {
+        System.out.println("baseSelenoidUrl " + baseSelenoidUrl);
         return new AndroidDriver(new URL(baseSelenoidUrl), options);
       } else {
         return new AndroidDriver(new URL(baseLocalUrl), options);
