@@ -117,7 +117,7 @@
                         <remote>${remote}</remote>
                         <platformVersion>${platformVersion}</platformVersion>
                         <remote.url>${remote.url}</remote.url>
-                        <local.url>${base.url}</local.url>
+                        <local.url>${local.url}</local.url>
                         <test.project.language>${test.project.language}</test.project.language>
                     </systemPropertyVariables>
                 </configuration>
