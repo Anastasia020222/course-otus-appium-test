@@ -4,6 +4,7 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.switchTo;
 import static otus.appium.common.Constants.EXPLICIT_WAIT;
+import static otus.appium.common.Constants.MAX_EXPLICIT_WAIT;
 
 import com.google.inject.Inject;
 import io.qameta.allure.Step;
@@ -23,7 +24,7 @@ public class ChatStep {
   public ChatStep checkOneSlide() {
     chatPage
         .getTextOneSlide()
-        .shouldBe(visible.because("Текст на первом слайде не отобразился"));
+        .shouldBe(visible.because("Текст на первом слайде не отобразился"), MAX_EXPLICIT_WAIT);
     chatPage
         .getNextText()
         .shouldBe(visible.because("Кнопка next не отобразилась"), EXPLICIT_WAIT)

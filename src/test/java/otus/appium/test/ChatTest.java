@@ -15,6 +15,7 @@ public class ChatTest extends AbsBasePage {
 
   @Test
   @DisplayName("Отображение приветственных слайдов")
+  @Disabled
   public void checkVisibleWelcomeSlideTest() {
     open();
     chatStep

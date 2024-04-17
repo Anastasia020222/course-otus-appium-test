@@ -27,6 +27,8 @@ public class AndroidWebDriverProvider implements WebDriverProvider {
     UiAutomator2Options options = new UiAutomator2Options();
 
     if (remote) {
+      System.out.println(platformVersion);
+      System.out.println(platformName);
       options.setCapability("browserName", platformName);
       options.merge(capabilities);
       options.setAutomationName(AutomationName.ANDROID_UIAUTOMATOR2);

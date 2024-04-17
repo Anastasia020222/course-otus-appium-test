@@ -15,7 +15,7 @@
         <maven.compiler.plugin.version>3.9.0</maven.compiler.plugin.version>
 
         <platformName>android</platformName>
-        <platformVersion>5.1</platformVersion>
+        <platformVersion>8.1</platformVersion>
         <remote>true</remote>
         <remote.url>http://172.30.207.187:80/wd/hub</remote.url>
         <local.url>http://127.0.0.1:4723/wd/hub</local.url>
@@ -104,8 +104,6 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>${surefire.plugin.version}</version>
                 <configuration>
-                    <parallel>methods</parallel>
-                    <threadCount>3</threadCount>
                     <systemProperties>
                         <property>
                             <name>allure.results.directory</name>
