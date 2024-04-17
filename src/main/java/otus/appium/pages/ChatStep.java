@@ -87,7 +87,7 @@ public class ChatStep {
     return this;
   }
 
-  //Проверяем отображение экрана с упражнениями и стартуем упражнение
+  @Step("Проверяем отображение экрана с упражнениями и стартуем упражнение")
   public ChatStep checkWidgetExercise() {
     chatPage
         .getWidgetExercise()
@@ -107,7 +107,7 @@ public class ChatStep {
     return this;
   }
 
-  //проверяем отображение сообщения после клика на кнопку start и отображение сообщения с первым словом и вариантами ответов
+  @Step("Проверяем отображение сообщения после клика на кнопку start и отображение сообщения с первым словом и вариантами ответов")
   public ChatStep checkWelcomeMessage() {
     chatPage
         .getStartMessage()
@@ -127,7 +127,7 @@ public class ChatStep {
     return this;
   }
 
-  //проверяем экран по грамматике и стартуем упражнение
+  @Step("Проверяем экран по грамматике и стартуем упражнение")
   public ChatStep checkStartGrammar() {
     chatPage
         .getWidgetGrammar()
@@ -146,7 +146,7 @@ public class ChatStep {
     return this;
   }
 
-  //проверяем, что упражнение запущено
+  @Step("Проверяем, что упражнение запущено")
   public ChatStep checkStartMessageGrammar() {
     chatPage
         .getMessageStartGrammar()
@@ -157,7 +157,7 @@ public class ChatStep {
     return this;
   }
 
-  //проверяем что появятся варианты ответов
+  @Step("Проверяем что появятся варианты ответов")
   public ChatStep checkOptionGrammar() {
     chatPage
         .getSendTextContent()
@@ -176,7 +176,7 @@ public class ChatStep {
     return this;
   }
 
-  //берем первый в списке недоступный курс и проверяем, что у него есть кнопка Get Premium
+  @Step("Берем первый в списке недоступный курс и проверяем, что у него есть кнопка Get Premium")
   public ChatStep checkUnavailableLesson() {
     chatPage
         .getWidgetGrammar()

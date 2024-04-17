@@ -2,8 +2,10 @@ package otus.appium.extension;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
+import com.codeborne.selenide.logevents.SelenideLogger;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
+import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.extension.AfterEachCallback;
 import org.junit.jupiter.api.extension.BeforeAllCallback;
 import org.junit.jupiter.api.extension.BeforeEachCallback;
@@ -19,6 +21,7 @@ public class AndroidExtension implements BeforeAllCallback, BeforeEachCallback, 
   public void beforeAll(ExtensionContext extensionContext) {
     Configuration.browserSize = null;
     Configuration.browser = AndroidWebDriverProvider.class.getName();
+    SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
     injector = Guice.createInjector(new GuiceModule());
   }
 
