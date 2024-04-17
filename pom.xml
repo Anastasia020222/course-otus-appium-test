@@ -30,6 +30,7 @@
         <allure-maven.version>2.12.0</allure-maven.version>
         <checkstyle.plugin.version>3.1.0</checkstyle.plugin.version>
         <surefire.plugin.version>3.0.0-M5</surefire.plugin.version>
+        <aspectj.version>1.9.6</aspectj.version>
     </properties>
 
     <dependencies>
@@ -118,7 +119,17 @@
                         <local.url>${local.url}</local.url>
                         <test.project.language>${test.project.language}</test.project.language>
                     </systemPropertyVariables>
+                    <argLine>
+                        -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
+                    </argLine>
                 </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.aspectj</groupId>
+                        <artifactId>aspectjweaver</artifactId>
+                        <version>${aspectj.version}</version>
+                    </dependency>
+                </dependencies>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
