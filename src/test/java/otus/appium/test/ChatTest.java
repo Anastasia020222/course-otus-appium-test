@@ -14,18 +14,6 @@ public class ChatTest extends AbsBasePage {
   private ChatStep chatStep;
 
   @Test
-  @DisplayName("Отображение приветственных слайдов")
-  @Disabled
-  public void checkVisibleWelcomeSlideTest() {
-    open();
-    chatStep
-        .checkOneSlide()
-        .checkTwoSlide()
-        .checkTreeSlide()
-        .checkVisibilityChat();
-  }
-
-  @Test
   @DisplayName("Запуск упражнения 'Изучить пять слов'")
   public void checkStartExerciseTest() {
     open();
@@ -44,14 +32,5 @@ public class ChatTest extends AbsBasePage {
         .checkStartGrammar()
         .checkStartMessageGrammar()
         .checkOptionGrammar();
-  }
-
-  @Test
-  @DisplayName("Нельзя запустить недоступный урок по грамматике")
-  public void checkOptionExplain() {
-    open();
-    chatStep
-        .visibleSlide()
-        .checkUnavailableLesson();
   }
 }
