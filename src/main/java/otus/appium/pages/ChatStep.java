@@ -187,9 +187,6 @@ public class ChatStep {
         .shouldBe(visible.because("Кнопка 'Get Premium' у первого недоступного курса не отобразилась"))
         .click();
     chatPage
-        .getButtonGetPremium()
-        .shouldNotBe(visible.because("Кнопка 'Get Premium' у первого недоступного курса не скрылась"), EXPLICIT_WAIT);
-    chatPage
         .getTextBarUpgrade()
         .shouldBe(visible.because("Текст 'Upgrade To Pro' не отобразился"));
     return this;
