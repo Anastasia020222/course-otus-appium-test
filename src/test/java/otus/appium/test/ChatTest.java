@@ -33,4 +33,24 @@ public class ChatTest extends AbsBasePage {
         .checkStartMessageGrammar()
         .checkOptionGrammar();
   }
+
+  @Test
+  @DisplayName("Нельзя запустить недоступный урок по грамматике")
+  public void checkOptionExplain() {
+    open();
+    chatStep
+        .visibleSlide()
+        .checkUnavailableLesson();
+  }
+
+  @Test
+  @DisplayName("Отображение приветственных слайдов")
+  public void checkVisibleWelcomeSlideTest() {
+    open();
+    chatStep
+        .checkOneSlide()
+        .checkTwoSlide()
+        .checkTreeSlide()
+        .checkVisibilityChat();
+  }
 }
